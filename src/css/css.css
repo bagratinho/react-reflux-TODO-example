@@ -1,0 +1,212 @@
+body{
+	background: #e2e2e2;
+	color: #6d6d6d;
+	font-family: Open Sans;
+}
+.todo-list-wrapper h3{
+	margin: 0 0 10px 0;
+	padding: 0 0 10px 0;
+	border-bottom: solid 1px #ccc;
+	font-size: 18px;
+	line-height: 20px;
+}
+.todo-list-wrapper ul{
+	margin: 0;
+	padding: 0;
+}
+.title-bar{
+	position: relative;
+}
+.title-bar button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    line-height: 20px;
+    border: 0;
+    display: block;
+    padding: 0 8px;
+    font-size: 14px;
+    border-radius: 3px;
+    background: #5f86e0;
+    color: #fff;
+    font-family: inherit;
+
+}
+.todo-list-wrapper ul li span{
+	cursor: pointer;
+}
+.todo-list-wrapper ul li.no-task{
+	border: dashed 1px #ccc;
+	background: #fff;
+	color: #ccc;
+	text-align: center;
+	padding: 20px 10px;
+}
+.todo-list-wrapper ul li{
+    display: block;
+    background: rgb(202, 215, 245);
+    line-height: 20px;
+    padding: 5px 10px 5px 40px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    color: #394e80;
+    font-size: 14px;
+    position: relative;
+}
+.todo-list-wrapper ul li button.delete{
+	position: absolute;
+    background: url(http://www.freeiconspng.com/uploads/close-icon-29.png);
+    top: 5px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    border: 0;
+    box-shadow: 0 0 0 3px #808080 inset;
+    border-radius: 10px;
+    outline: none;
+}
+.todo-list-wrapper ul li.true{
+	text-decoration: line-through;
+	opacity: 0.6;
+}
+.todo-list-wrapper ul li label.toggle{
+	position: absolute;
+    top: 5px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    border: 0;
+    outline: none;
+    box-shadow: 0 0 0 3px #808080 inset;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.todo-list-wrapper ul li label.toggle.true:after{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #808080;
+    content: "";
+    display: block;
+    left: 5px;
+    top: 5px;
+    border-radius: 5px;
+}
+.todo-list-wrapper{
+	background: #fff;
+	width: 400px;
+	margin: 20px auto;
+	padding: 20px;
+	box-sizing: border-box;
+	border-radius: 10px;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.32);
+}
+.modal-wrapper .overlay{
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0,0,0,0.5);
+	z-index: 1;
+	opacity: 0;
+	visibility: hidden;	
+}
+.modal-wrapper.open .overlay,
+.modal-wrapper.open .modal{
+	visibility: visible;
+	opacity: 1;
+}
+.modal-wrapper .overlay,
+.modal-wrapper .modal-inner,
+.modal-wrapper .modal{
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.modal-wrapper .modal-inner{
+	-moz-transform: scale(1.25);
+	-webkit-transform: scale(1.25);
+	-o-transform: scale(1.25);
+	-ms-transform: scale(1.25);
+	transform: scale(1.25);	
+}
+.modal-wrapper.open .modal-inner{
+	-moz-transform: scale(1);
+	-webkit-transform: scale(1);
+	-o-transform: scale(1);
+	-ms-transform: scale(1);
+	transform: scale(1);	
+}	
+.modal-wrapper .modal-inner{
+	position: relative;
+}
+.modal-wrapper .modal-inner .todo-list-wrapper{
+	margin: 0;
+}
+.modal-wrapper .modal-inner > button{
+	position: absolute;
+	background:  url(http://www.freeiconspng.com/uploads/close-icon-29.png);
+	top: 10px;
+	right: 10px;
+	width: 20px;
+	height: 20px;
+	background-size: cover;
+	border: 0;
+	outline: none;
+}
+.modal-wrapper .modal-inner input{
+	display: block;
+	margin-bottom: 10px;
+	border: solid 1px #ccc;
+	border-radius: 3px;
+	line-height: 16px;
+	padding: 8px;
+	font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #6d6d6d;
+    outline: none;
+}
+.modal-wrapper .modal-inner .save{
+	width: 80px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    line-height: 30px;
+    border: 0;
+    border-radius: 5px;
+    background: #5f86e0;
+    outline: none;
+    color: #fff;
+}
+.modal-wrapper .modal-inner textarea{
+	display: block;
+	margin-bottom: 10px;
+	border: solid 1px #ccc;
+	border-radius: 3px;
+	line-height: 16px;
+	padding: 8px;
+	font-size: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    color: #6d6d6d;
+    height: 64px;
+    outline: none;
+}
+.modal-wrapper .modal{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	opacity: 0;
+	visibility: hidden;	
+	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
